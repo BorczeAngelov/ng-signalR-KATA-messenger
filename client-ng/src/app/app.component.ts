@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MessengerService } from './services/messenger.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'client-ng';
+export class AppComponent implements OnInit  {  
+
+  constructor(private messangerService: MessengerService) { }
+
+  ngOnInit(): void {
+    this.messangerService.ngOnInit();    
+  }
 }
