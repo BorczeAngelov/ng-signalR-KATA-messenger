@@ -6,11 +6,15 @@ import { MessengerService } from './services/messenger.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit  {  
+export class AppComponent implements OnInit {
 
   constructor(public messangerService: MessengerService) { }
 
   ngOnInit(): void {
-    this.messangerService.ngOnInit();    
+    this.messangerService.ngOnInit();
+  }
+
+  sendMessage(message: string) {
+    this.messangerService.sendMessage(message)
   }
 }

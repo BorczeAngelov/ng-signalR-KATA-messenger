@@ -1,4 +1,3 @@
-
 <h2 [textContent]="messangerService.chatRoom?.roomName">
 
 </h2>
@@ -8,3 +7,11 @@
   <label [textContent]="message"></label>
 
 </li>
+
+<div>
+  <input type="text" #lmessage name="lmessage" placeholder="Type your message here">
+
+  <button style="margin: 5px;" (click)="sendMessage(lmessage.value)">
+    Send
+  </button>
+</div>

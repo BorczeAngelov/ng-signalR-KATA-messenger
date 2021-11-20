@@ -11,5 +11,11 @@ namespace server_signalR.Hubs
             Clients.Caller.SendAsync("onConnected", InMemoryStorage.GetInstance.ChatRoom);
             return base.OnConnectedAsync();
         }
+
+        public Task SendMessage(string message)
+        {
+            InMemoryStorage.GetInstance.ChatRoom.Messages.Add(message);
+            return Clients.All.SendAsync("onUpdatedChatRoom", InMemoryStorage.GetInstance.ChatRoom);
+        }
     }
 }
