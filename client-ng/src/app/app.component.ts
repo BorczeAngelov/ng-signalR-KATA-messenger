@@ -8,7 +8,7 @@ import { MessengerService } from './services/messenger.service';
 })
 export class AppComponent implements OnInit  {  
 
-  constructor(private messangerService: MessengerService) { }
+  constructor(public messangerService: MessengerService) { }
 
   ngOnInit(): void {
     this.messangerService.ngOnInit();    
