@@ -6,7 +6,7 @@ namespace server_signalR.DataStorage
 {
     internal class InMemoryStorage
     {
-        private static Lazy<InMemoryStorage> _instance => new Lazy<InMemoryStorage>(() => new InMemoryStorage());
+        private static readonly Lazy<InMemoryStorage> _instance = new Lazy<InMemoryStorage>(() => new InMemoryStorage());
         internal static InMemoryStorage GetInstance => _instance.Value;
 
         private InMemoryStorage()
