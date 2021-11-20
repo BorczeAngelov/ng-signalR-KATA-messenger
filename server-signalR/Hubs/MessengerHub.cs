@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using server_signalR.DataStorage;
 using System.Threading.Tasks;
 
 namespace server_signalR.Hubs
@@ -7,8 +8,7 @@ namespace server_signalR.Hubs
     {
         public override Task OnConnectedAsync()
         {
-            Clients.Caller.SendAsync("onConnected", "Testing: you are connected.");
-            Clients.Others.SendAsync("onConnected", "Testing: another client has connected.");
+            Clients.Caller.SendAsync("onConnected", InMemoryStorage.GetInstance.ChatRoom);
             return base.OnConnectedAsync();
         }
     }
